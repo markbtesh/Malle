@@ -5,6 +5,9 @@ import { preview, painter, painting } from '../assets'
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
+import { download } from '../assets';
+import { downloadImage } from '../utils';
+
 const CreatePost = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -118,6 +121,8 @@ const CreatePost = () => {
             alt={form.prompt}
             className="w-full h-full object-contain"
             whileTap={{ scale: 1.2 }} />
+            
+            
 
           ) : (
             <img 
@@ -132,8 +137,14 @@ const CreatePost = () => {
               <Loader />
               </div>
           )}
-          </div>
 
+          
+       
+          </div>
+        
+       
+
+     
 
           
           <div className="relative text-sm focus:ring-blue-500 focus:border-blue-500 w-[400px] p-3 h-[400px] flex justify-center items-center">
@@ -156,6 +167,18 @@ const CreatePost = () => {
           >
               {generatingImg ? 'Generating...' : 'Generate'}
             </button>
+
+            {form.photo ? (
+
+            
+            <button type="button" onClick={() => downloadImage(form.prompt, form.photo)} className="outline-none bg-transparent border-none right-0">
+         <img src={download} alt="download" className="w-6 h-6 object-contain" />
+       </button>
+            ) : (
+              <button type="button" className="outline-none bg-transparent border-none right-0">
+              <img src={download} alt="download" className="w-6 h-6 object-contain invert" />
+            </button>
+             )}
           </div>
 
           <div className="mt-10">
