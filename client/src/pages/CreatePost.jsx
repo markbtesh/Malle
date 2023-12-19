@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import {Image} from 'lightbox.js-react'
+import 'lightbox.js-react/dist/index.css'
 
 import { preview, painter, painting } from '../assets'
 import { getRandomPrompt } from '../utils';
@@ -116,8 +118,8 @@ const CreatePost = () => {
   <div className="flex">
 <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-[400px] p-3 h-[400px] flex justify-center items-center">
           {form.photo ? (
-            <img 
-            src={form.photo}
+            <Image 
+            image= {{src: form.photo, title: form.prompt}}
             alt={form.prompt}
             className="w-full h-full object-contain"
             whileTap={{ scale: 1.2 }} />

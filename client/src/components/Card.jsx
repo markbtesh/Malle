@@ -3,11 +3,14 @@ import React from 'react';
 import { download } from '../assets';
 import { downloadImage } from '../utils';
 
+import {Image} from 'lightbox.js-react'
+import 'lightbox.js-react/dist/index.css'
+
 const Card = ({ _id, name, prompt, photo }) => (
   <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card">
-    <img
+    <Image
       className="w-full h-auto object-cover rounded-xl"
-      src={photo}
+      image={{src:photo, title: prompt}}
       alt={prompt}
     />
     <div className="group-hover:flex flex-col max-h-[94.5%] hidden absolute bottom-0 left-0 right-0 bg-[#10131f] m-2 p-4 rounded-md">
