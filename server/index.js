@@ -11,9 +11,10 @@ dotenv.config();
 const app = express();
 app.use(cors(
     {
-        origin: ["https://malle.markbtesh.com"],
-        method: ["POST", "GET"],
-        credentials: true
+        origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
     }
 ));
 app.use(express.json({ limit: '50mb' }));
