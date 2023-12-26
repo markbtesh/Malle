@@ -1,8 +1,8 @@
 {
   
   "functions": {
-    "/api/v1/dalle": {
-      "maxDuration": 60
+    "/api/v1/dalle.js": {
+      "maxDuration": 30
     }
   },
 
