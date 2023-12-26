@@ -4,12 +4,25 @@
       {
         "src": "index.js", 
         "use": "@vercel/node"
+      },
+      {
+        "src": "client/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "build" }
       }
     ],
     "routes": [
         {
-          "src": "/(.*)",
+          "src": "/api/(.*)",
           "dest": "./index.js",
+          "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+          "headers": {
+            "Access-Control-Allow-Origin": "*"
+          }
+        },
+        {
+          "src": "/(.*)",
+          "dest": "/client/index.html",
           "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
           "headers": {
             "Access-Control-Allow-Origin": "*"
