@@ -21,6 +21,11 @@ app.use(express.json());
 
 app.use('/api/v1/post', postRoutes);
 app.use ('/api/v1/dalle', dalleRoutes);
+app.post('/api/v1/dalle', (req, res) => {
+    req.setTimeout(60000); // Set timeout to 60000 ms or 60 seconds
+
+   
+});
 
 app.get('/', async (req, res) => {
     res.send('Hello from MALLE');
