@@ -1,10 +1,6 @@
 {
   
-  "functions": {
-    "/api/v1/dalle": {
-      "maxDuration": 30
-    }
-  },
+ 
 
   "version": 2,
   "builds": [
