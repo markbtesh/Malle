@@ -21,6 +21,12 @@ app.use(express.json());
 
 app.use('/api/v1/post', postRoutes);
 app.use ('/api/v1/dalle', dalleRoutes);
+app.use('/api/v1/dalle', cors( {
+        origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+    }));
 
 app.get('/', async (req, res) => {
     res.send('Hello from MALLE');
