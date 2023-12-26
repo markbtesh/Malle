@@ -28,7 +28,7 @@ const CreatePost = () => {
             const response = await fetch('https://malle-hbyv.vercel.app/api/v1/dalle', {
               method: 'POST',
               headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
               },
               body:JSON.stringify({ prompt: form.prompt }),
             })
