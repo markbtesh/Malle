@@ -16,8 +16,6 @@ router.route('/').get((req, res) => {
 })
 
 router.route('/').post(async(req, res) => {
-
-      req.setTimeout(60000); 
     try {
         const { prompt } = req.body;
 
