@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(cors(
     {
-        origin: ["https://malle.vercel.app/create-post"],
+        origin: ["https://malle.vercel.app"],
         method: ["POST", "GET"],
         credentials: true
     }
