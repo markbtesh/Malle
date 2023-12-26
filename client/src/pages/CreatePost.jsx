@@ -10,6 +10,8 @@ import { FormField, Loader } from '../components';
 import { download } from '../assets';
 import { downloadImage } from '../utils';
 
+const baseUrl = import.meta.env.VITE_BASEURL ?? '';
+
 const CreatePost = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -25,7 +27,7 @@ const CreatePost = () => {
       if(form.prompt) {
         try {
             setGeneratingImg(true);
-            const response = await fetch('https://malle-hbyv.vercel.app/api/v1/dalle', {
+            const response = await fetch( `${baseUrl}/dalle`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +61,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('https://malle-hbyv.vercel.app/api/v1/post', {
+        const response = await fetch(`${baseUrl}/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

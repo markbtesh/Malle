@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import {  painter} from '../assets'
 import { Card, FormField, Loader } from '../components';
 
+const baseUrl = import.meta.env.VITE_BASEURL ?? '';
+
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
     return (
@@ -27,7 +29,7 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://malle-hbyv.vercel.app/api/v1/post', {
+      const response = await fetch(`${baseUrl}/post`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
