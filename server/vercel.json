@@ -1,4 +1,11 @@
 {
+  
+  "functions": {
+    "/api/**/*.js": {
+      "maxDuration": 60
+    }
+  },
+
   "version": 2,
   "builds": [
     {
